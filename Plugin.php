@@ -123,13 +123,9 @@ class AutoSavePicture_Plugin implements Typecho_Plugin_Interface
         if ($response_code == 200) {
             $parse = parse_url($url);
             if (strpos($url, '://mmbiz.qpic.cn/') !== false) {
-                parse_str($parse['query'], $params);
-
-                $result = \Widget\Upload::alloc()->uploadHandle(['name' =>  $_POST['title'].'_'.rand(0,500). '.' . $params['wx_fmt'], 'type' => 'image/' . $params['wx_fmt'], 'bits' => $response]);
-            } else {
-                $result = \Widget\Upload::alloc()->uploadHandle(['name' => substr($parse['path'], strrpos($parse['path'], '/') + 1), 'type' => 'image/' . substr($parse['path'], strrpos($parse['path'], '.') + 1), 'bits' => $response]);
-            }
-            $struct = [
+                       $result = \Widget\Upload::alloc()->uploadHandle(['name' => $_POST['title'] . '_' . rand(1, 500) . '.png', 'type' => 'image/png', 'bits' => $response]);
+                
+             $struct = [
                 'title' => $result['name'],
                 'slug' => $result['name'],
                 'type' => 'attachment',
