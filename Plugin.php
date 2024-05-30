@@ -4,7 +4,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 /**
  *
  * 自动下载外链文章
- * 插件简单加密，如有问题，欢迎来访本人博客留言
+ * 如有问题，欢迎来访本人博客留言
  *
  * @package AutoSavePicture
  * @author cultureSun
